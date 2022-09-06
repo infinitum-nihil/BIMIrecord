@@ -11,5 +11,6 @@ https://datatracker.ietf.org/doc/draft-blank-ietf-bimi/
 to learn about BIMI records in general, check these out:
 
 https://bimigroup.org/
+
 https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace
 
