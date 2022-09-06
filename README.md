@@ -2,7 +2,7 @@
 
 This repo hosts the BIMI assets for the mail services of infinitum-nihil.com
 
-last updated 6sep2022 at 16:54:03 UT by NT
+last updated 6sep2022 at 16:54:03 UTC by NT
 
 relevant info regarding this is here:
 
