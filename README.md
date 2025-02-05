@@ -16,3 +16,4 @@ to learn about BIMI records in general, check these out:
 
 [https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace](https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace)
 
+[![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
