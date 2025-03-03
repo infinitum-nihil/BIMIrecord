@@ -4,15 +4,16 @@ https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md
 
 This repo hosts the BIMI assets for the mail services of infinitum-nihil.com
 
-last updated 6sep2022 at 16:54:03 UTC by NT
+last updated 4mar2024 at 15:54:03 UTC by NT
 
 relevant info regarding this is here:
-
-[https://datatracker.ietf.org/doc/draft-blank-ietf-bimi/](https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/)
+[https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/](https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/)
 
 to learn about BIMI records in general, check these out:
 
 [https://bimigroup.org/](https://bimigroup.org/)
+
+[https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate]
 
 [https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace](https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace)
 
