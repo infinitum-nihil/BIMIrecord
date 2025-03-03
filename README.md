@@ -13,7 +13,7 @@ to learn about BIMI records in general, check these out:
 
 [https://bimigroup.org/](https://bimigroup.org/)
 
-[https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate]
+[https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate](Digcert VMC FAQ)
 
 [https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace](https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace)
 
