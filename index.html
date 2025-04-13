@@ -6,21 +6,86 @@
     <title>BIMI record repo</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
         }
         img {
             max-width: 300px;
-            margin: 20px 0;
+            margin: 0 auto;
+            display: block;
         }
         h1 {
-            margin-bottom: 10px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        .header-link {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .updated {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 0.9em;
         }
         .logo-display {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
             margin: 30px 0;
+            text-align: center;
+            border: 1px solid #e3e3e3;
+        }
+        .logo-display p {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .info-section {
+            margin: 25px 0;
+        }
+        .info-section h2 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .info-section p {
+            margin-bottom: 15px;
+        }
+        .links {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .links a {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         a {
             color: #0366d6;
@@ -28,34 +93,54 @@
         }
         a:hover {
             text-decoration: underline;
+            background-color: #f0f0f0;
+        }
+        .status-badge {
+            text-align: center;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>BIMI record repo</h1>
-    
-    <p><a href="https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md">https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md</a></p>
-    
-    <p>This repo hosts the BIMI assets for the mail services of infinitum-nihil.com</p>
-    
-    <p>last updated 4mar2024 at 15:54:03 UTC by NT</p>
-    
-    <div class="logo-display">
-        <img src="image/logo.svg" alt="BIMI Logo">
-        <p>BIMI logo: <a href="image/logo.svg">image/logo.svg</a></p>
+    <div class="container">
+        <h1>BIMI record repo</h1>
+        
+        <div class="header-link">
+            <a href="https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md">View on GitHub</a>
+        </div>
+        
+        <p class="description">This repo hosts the BIMI assets for the mail services of infinitum-nihil.com</p>
+        
+        <p class="updated">Last updated 4mar2024 at 15:54:03 UTC by NT</p>
+        
+        <div class="logo-display">
+            <img src="image/logo.svg" alt="BIMI Logo">
+            <p>BIMI logo: <a href="image/logo.svg">image/logo.svg</a></p>
+        </div>
+        
+        <div class="info-section">
+            <h2>Relevant information</h2>
+            <p>
+                <a href="https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/">
+                    IETF Draft Specification: Brand Indicators for Message Identification
+                </a>
+            </p>
+        </div>
+        
+        <div class="info-section">
+            <h2>Learn about BIMI records</h2>
+            <div class="links">
+                <a href="https://bimigroup.org/">BIMI Group Official Website</a>
+                <a href="https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/">DigiCert: What is a Verified Mark Certificate?</a>
+                <a href="https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace">Google: Bringing BIMI to Gmail in Google Workspace</a>
+            </div>
+        </div>
+        
+        <div class="status-badge">
+            <a href="https://uptime.betterstack.com/?utm_source=status_badge">
+                <img src="https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg" alt="Better Stack Badge">
+            </a>
+        </div>
     </div>
-    
-    <p>relevant info regarding this is here:
-    <a href="https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/">https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/</a></p>
-    
-    <p>to learn about BIMI records in general, check these out:</p>
-    
-    <p><a href="https://bimigroup.org/">https://bimigroup.org/</a></p>
-    
-    <p><a href="https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/">https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/</a></p>
-    
-    <p><a href="https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace">https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace</a></p>
-    
-    <p><a href="https://uptime.betterstack.com/?utm_source=status_badge"><img src="https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg" alt="Better Stack Badge"></a></p>
 </body>
 </html>
