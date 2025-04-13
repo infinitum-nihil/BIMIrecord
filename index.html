@@ -11,94 +11,136 @@
     <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
     <title>BIMI record repo</title>
     <style>
-        body {
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            font-size: 14px;
+            line-height: 1.4;
             color: #333;
             background-color: #f8f9fa;
+        }
+        .page-container {
+            display: flex;
+            height: 100vh;
+            padding: 15px;
+            box-sizing: border-box;
         }
         .container {
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 30px;
+            padding: 15px;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto 1fr auto;
+            gap: 15px;
+            grid-template-areas:
+                "header header"
+                "logo info1"
+                "info2 links"
+                "status status";
+            align-items: start;
         }
         img {
-            max-width: 150px;
+            max-width: 100px;
             margin: 0 auto;
             display: block;
         }
+        .header {
+            grid-area: header;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
         h1 {
             color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 10px;
+            margin: 0 0 5px 0;
+            font-size: 24px;
         }
-        .header-link {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 0.9em;
+        .subtitle {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
             color: #666;
+            margin-top: 5px;
         }
         .description {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-        .updated {
-            text-align: center;
-            color: #666;
-            font-style: italic;
-            margin-bottom: 30px;
-            font-size: 0.9em;
+            font-size: 14px;
+            margin: 5px 0;
         }
         .logo-display {
+            grid-area: logo;
             background-color: #f5f5f5;
             border-radius: 8px;
-            padding: 20px;
-            margin: 30px 0;
+            padding: 15px;
             text-align: center;
             border: 1px solid #e3e3e3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .logo-display p {
-            margin-top: 15px;
+            margin-top: 10px;
             font-weight: bold;
+            font-size: 12px;
         }
         .info-section {
-            margin: 25px 0;
             background-color: #f5f5f5;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             border: 1px solid #e3e3e3;
         }
+        .info-section.info1 {
+            grid-area: info1;
+        }
+        .info-section.info2 {
+            grid-area: info2;
+        }
         .info-section h2 {
-            font-size: 1.2em;
+            font-size: 16px;
             color: #2c3e50;
-            margin-bottom: 15px;
+            margin: 0 0 10px 0;
             text-align: center;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
             border-bottom: 1px solid #e3e3e3;
         }
-        .info-section p {
-            margin-bottom: 15px;
-        }
-        .links {
+        .links-container {
+            grid-area: links;
             background-color: #f5f5f5;
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #e3e3e3;
+        }
+        .links-container h2 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e3e3e3;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
         .links a {
             display: block;
-            margin-bottom: 10px;
-            padding: 8px;
+            padding: 5px;
             border-radius: 4px;
             background-color: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
         }
         a {
             color: #0366d6;
@@ -109,50 +151,78 @@
             background-color: #f0f0f0;
         }
         .status-badge {
+            grid-area: status;
             text-align: center;
-            margin-top: 30px;
+            margin-top: 5px;
+        }
+        .status-badge img {
+            height: 20px;
+            width: auto;
+        }
+        
+        /* For smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "logo"
+                    "info1"
+                    "info2"
+                    "links"
+                    "status";
+            }
+            body {
+                overflow-y: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>BIMI record repo</h1>
-        
-        <div class="header-link">
-            <a href="https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md">View on GitHub</a>
-        </div>
-        
-        <p class="description">This repo hosts the BIMI assets for the mail services of infinitum-nihil.com</p>
-        
-        <p class="updated">Last updated 4mar2024 at 15:54:03 UTC by NT</p>
-        
-        <div class="logo-display">
-            <img src="image/logo.svg" alt="BIMI Logo">
-            <p>BIMI logo: <a href="image/logo.svg">image/logo.svg</a></p>
-        </div>
-        
-        <div class="info-section">
-            <h2>Relevant information</h2>
-            <p>
-                <a href="https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/">
-                    IETF Draft Specification: Brand Indicators for Message Identification
-                </a>
-            </p>
-        </div>
-        
-        <div class="info-section">
-            <h2>Learn about BIMI records</h2>
-            <div class="links">
-                <a href="https://bimigroup.org/">BIMI Group Official Website</a>
-                <a href="https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/">DigiCert: What is a Verified Mark Certificate?</a>
-                <a href="https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace">Google: Bringing BIMI to Gmail in Google Workspace</a>
+    <div class="page-container">
+        <div class="container">
+            <div class="header">
+                <h1>BIMI record repo</h1>
+                <p class="description">This repo hosts the BIMI assets for the mail services of infinitum-nihil.com</p>
+                <div class="subtitle">
+                    <span>Last updated: 4mar2024 at 15:54:03 UTC by NT</span>
+                    <a href="https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md">View on GitHub</a>
+                </div>
             </div>
-        </div>
-        
-        <div class="status-badge">
-            <a href="https://uptime.betterstack.com/?utm_source=status_badge">
-                <img src="https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg" alt="Better Stack Badge">
-            </a>
+            
+            <div class="logo-display">
+                <img src="image/logo.svg" alt="BIMI Logo">
+                <p>BIMI logo: <a href="image/logo.svg">image/logo.svg</a></p>
+            </div>
+            
+            <div class="info-section info1">
+                <h2>Relevant information</h2>
+                <p>
+                    <a href="https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/">
+                        IETF Draft Specification
+                    </a>
+                </p>
+            </div>
+            
+            <div class="info-section info2">
+                <h2>What is BIMI?</h2>
+                <p>Brand Indicators for Message Identification (BIMI) is an email specification that enables the display of brand logos in supporting email clients.</p>
+            </div>
+            
+            <div class="links-container">
+                <h2>Learn more</h2>
+                <div class="links">
+                    <a href="https://bimigroup.org/">BIMI Group Website</a>
+                    <a href="https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/">Verified Mark Certificates</a>
+                    <a href="https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace">BIMI in Gmail</a>
+                </div>
+            </div>
+            
+            <div class="status-badge">
+                <a href="https://uptime.betterstack.com/?utm_source=status_badge">
+                    <img src="https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg" alt="Status">
+                </a>
+            </div>
         </div>
     </div>
 </body>
