@@ -4,7 +4,7 @@ https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md
 
 This repo hosts the BIMI assets for the mail services of infinitum-nihil.com
 
-last updated 4mar2024 at 15:54:03 UTC by NT
+last updated 13apr2025 at 20:49:09 utc by NT
 
 relevant info regarding this is here:
 [https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/](https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/)
