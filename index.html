@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://uptime.betterstack.com; script-src 'none'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'none';">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
     <title>BIMI record repo</title>
     <style>
         body {
@@ -21,7 +27,7 @@
             padding: 30px;
         }
         img {
-            max-width: 300px;
+            max-width: 150px;
             margin: 0 auto;
             display: block;
         }
@@ -64,11 +70,18 @@
         }
         .info-section {
             margin: 25px 0;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e3e3e3;
         }
         .info-section h2 {
             font-size: 1.2em;
             color: #2c3e50;
             margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e3e3e3;
         }
         .info-section p {
             margin-bottom: 15px;
