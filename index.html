@@ -9,221 +9,400 @@
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
-    <title>BIMI record repo</title>
+    <title>BIMI — infinitum-nihil.com</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+        :root {
+            --black: #000000;
+            --red: #BE0F34;
+            --red-dim: rgba(190, 15, 52, 0.15);
+            --white: #ffffff;
+            --grey-1: #111111;
+            --grey-2: #1c1c1c;
+            --grey-3: #2a2a2a;
+            --grey-text: #888888;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         html, body {
             height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 300;
             font-size: 14px;
-            line-height: 1.4;
-            color: #333;
-            background-color: #f8f9fa;
+            line-height: 1.6;
         }
-        .page-container {
-            display: flex;
-            height: 100vh;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-        .container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 15px;
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
+
+        body {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto 1fr auto;
-            gap: 15px;
-            grid-template-areas:
-                "header header"
-                "logo info1"
-                "info2 links"
-                "status status";
-            align-items: start;
+            place-items: center;
+            min-height: 100vh;
+            padding: 24px;
         }
-        img {
-            max-width: 100px;
-            margin: 0 auto;
+
+        .shell {
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: var(--grey-1);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-mark {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
             display: block;
         }
-        .header {
-            grid-area: header;
-            text-align: center;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 10px;
+
+        .header-text h1 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--white);
         }
-        h1 {
-            color: #2c3e50;
-            margin: 0 0 5px 0;
-            font-size: 24px;
-        }
-        .subtitle {
-            display: flex;
-            justify-content: space-between;
+
+        .header-text p {
             font-size: 12px;
-            color: #666;
-            margin-top: 5px;
+            color: var(--grey-text);
+            margin-top: 2px;
+            font-family: 'IBM Plex Mono', monospace;
         }
-        .description {
-            font-size: 14px;
-            margin: 5px 0;
+
+        /* Body grid */
+        .body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
         }
-        .logo-display {
-            grid-area: logo;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #e3e3e3;
+
+        .panel {
+            padding: 24px 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .panel:nth-child(odd) {
+            border-right: 1px solid var(--border);
+        }
+
+        .panel-full {
+            grid-column: 1 / -1;
+            padding: 24px 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .panel-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 14px;
+        }
+
+        /* Status table */
+        .status-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .status-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .status-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .status-table td {
+            padding: 8px 0;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+        }
+
+        .status-table td:first-child {
+            color: var(--grey-text);
+            width: 55%;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .badge::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .badge.ok { color: #4caf7d; }
+        .badge.ok::before { background: #4caf7d; }
+
+        .badge.pending { color: #e6a817; }
+        .badge.pending::before { background: #e6a817; box-shadow: 0 0 6px #e6a817; animation: pulse 2s ease-in-out infinite; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* What changed */
+        .change-log {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            gap: 10px;
         }
-        .logo-display p {
-            margin-top: 10px;
-            font-weight: bold;
+
+        .change-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .change-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--grey-text);
+            white-space: nowrap;
+            padding-top: 1px;
+            min-width: 80px;
+        }
+
+        .change-desc {
+            font-size: 13px;
+            color: var(--white);
+            line-height: 1.5;
+        }
+
+        .change-desc span {
+            color: var(--grey-text);
             font-size: 12px;
         }
-        .info-section {
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            padding: 15px;
-            border: 1px solid #e3e3e3;
-        }
-        .info-section.info1 {
-            grid-area: info1;
-        }
-        .info-section.info2 {
-            grid-area: info2;
-        }
-        .info-section h2 {
-            font-size: 16px;
-            color: #2c3e50;
-            margin: 0 0 10px 0;
-            text-align: center;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e3e3e3;
-        }
-        .links-container {
-            grid-area: links;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            padding: 15px;
-            border: 1px solid #e3e3e3;
-        }
-        .links-container h2 {
-            font-size: 16px;
-            color: #2c3e50;
-            margin: 0 0 10px 0;
-            text-align: center;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e3e3e3;
-        }
+
+        /* Links */
         .links {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
         }
+
         .links a {
             display: block;
-            padding: 5px;
-            border-radius: 4px;
-            background-color: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 12px;
+            color: var(--grey-text);
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            transition: color 0.15s, border-color 0.15s, background 0.15s;
         }
-        a {
-            color: #0366d6;
+
+        .links a:hover {
+            color: var(--white);
+            border-color: var(--red);
+            background: var(--red-dim);
+        }
+
+        /* DNS record */
+        .dns-block {
+            background: var(--grey-2);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 14px 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--grey-text);
+            line-height: 1.8;
+            word-break: break-all;
+        }
+
+        .dns-block .key { color: var(--red); }
+        .dns-block .val { color: #aaaaaa; }
+        .dns-block .pending-field { color: #e6a817; }
+
+        /* Footer */
+        .footer {
+            background: var(--grey-1);
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-left {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--grey-text);
+        }
+
+        .footer-left a {
+            color: var(--grey-text);
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
-            background-color: #f0f0f0;
-        }
-        .status-badge {
-            grid-area: status;
-            text-align: center;
-            margin-top: 5px;
-        }
-        .status-badge img {
-            height: 20px;
-            width: auto;
-        }
-        
-        /* For smaller screens */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-                grid-template-areas:
-                    "header"
-                    "logo"
-                    "info1"
-                    "info2"
-                    "links"
-                    "status";
-            }
-            body {
-                overflow-y: auto;
-            }
+
+        .footer-left a:hover { color: var(--white); }
+
+        @media (max-width: 600px) {
+            .body { grid-template-columns: 1fr; }
+            .panel:nth-child(odd) { border-right: none; }
+            .panel-full { grid-column: 1; }
+            .header { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
-    <div class="page-container">
-        <div class="container">
-            <div class="header">
-                <h1>BIMI record repo</h1>
-                <p class="description">This repo hosts the BIMI assets for the mail services of infinitum-nihil.com</p>
-                <div class="subtitle">
-                    <span>Last updated: 13apr2025 at 20:49:09 utc by NT</span>
-                    <a href="https://github.com/infinitum-nihil/BIMIrecord/edit/main/README.md">View on GitHub</a>
+    <div class="shell">
+
+        <div class="header">
+            <div class="logo-mark">
+                <img src="image/logo.svg" alt="Infinitum Nihil">
+            </div>
+            <div class="header-text">
+                <h1>infinitum-nihil.com — BIMI</h1>
+                <p>Brand Indicators for Message Identification · bimi.infinitum-nihil.com</p>
+            </div>
+        </div>
+
+        <div class="body">
+
+            <div class="panel">
+                <div class="panel-label">Status</div>
+                <table class="status-table">
+                    <tr>
+                        <td>DMARC</td>
+                        <td><span class="badge ok">p=reject / pct=100</span></td>
+                    </tr>
+                    <tr>
+                        <td>BIMI DNS record</td>
+                        <td><span class="badge ok">live</span></td>
+                    </tr>
+                    <tr>
+                        <td>SVG logo (l=)</td>
+                        <td><span class="badge ok">SVG Tiny 1.2 PS</span></td>
+                    </tr>
+                    <tr>
+                        <td>US Trademark</td>
+                        <td><span class="badge ok">Reg. No. 8145923</span></td>
+                    </tr>
+                    <tr>
+                        <td>VMC cert</td>
+                        <td><span class="badge pending">validation in progress</span></td>
+                    </tr>
+                    <tr>
+                        <td>a= field</td>
+                        <td><span class="badge pending">pending PEM delivery</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="panel">
+                <div class="panel-label">Changelog</div>
+                <div class="change-log">
+                    <div class="change-item">
+                        <div class="change-date">14 Mar 2026</div>
+                        <div class="change-desc">
+                            VMC cert purchased — PrimeSSL<br>
+                            <span>$810/yr · validation in progress</span>
+                        </div>
+                    </div>
+                    <div class="change-item">
+                        <div class="change-date">14 Mar 2026</div>
+                        <div class="change-desc">
+                            SVG rebuilt as true vector<br>
+                            <span>potrace trace from brand PNG · BIMI Tiny 1.2 PS compliant</span>
+                        </div>
+                    </div>
+                    <div class="change-item">
+                        <div class="change-date">17 Feb 2026</div>
+                        <div class="change-desc">
+                            Trademark registered<br>
+                            <span>US Reg. No. 8145923 — Principal Register</span>
+                        </div>
+                    </div>
+                    <div class="change-item">
+                        <div class="change-date">Apr 2025</div>
+                        <div class="change-desc">
+                            BIMI DNS record live<br>
+                            <span>Waiting on trademark + VMC</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="logo-display">
-                <img src="image/logo.svg" alt="BIMI Logo">
-                <p>BIMI logo: <a href="image/logo.svg">image/logo.svg</a></p>
+
+            <div class="panel-full">
+                <div class="panel-label">DNS Record</div>
+                <div class="dns-block">
+                    <span class="key">default._bimi.infinitum-nihil.com</span>&nbsp;&nbsp;<span class="val">IN TXT</span><br>
+                    <span class="val">&nbsp;&nbsp;"v=BIMI1;</span><br>
+                    <span class="val">&nbsp;&nbsp;&nbsp;l=</span><span class="val">https://bimi.infinitum-nihil.com/image/logo.svg;</span><br>
+                    <span class="pending-field">&nbsp;&nbsp;&nbsp;a=&lt;pending — PEM URL from PrimeSSL&gt;"</span>
+                </div>
             </div>
-            
-            <div class="info-section info1">
-                <h2>Relevant information</h2>
-                <p>
-                    <a href="https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/">
-                        IETF Draft Specification
-                    </a>
-                </p>
-            </div>
-            
-            <div class="info-section info2">
-                <h2>What is BIMI?</h2>
-                <p>Brand Indicators for Message Identification (BIMI) is an email specification that enables the display of brand logos in supporting email clients.</p>
-            </div>
-            
-            <div class="links-container">
-                <h2>Learn more</h2>
+
+            <div class="panel">
+                <div class="panel-label">Specifications</div>
                 <div class="links">
-                    <a href="https://bimigroup.org/">BIMI Group Website</a>
-                    <a href="https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/">Verified Mark Certificates</a>
+                    <a href="https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/">IETF BIMI Draft</a>
+                    <a href="https://bimigroup.org/">BIMI Group</a>
+                    <a href="https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/">What is a VMC?</a>
                     <a href="https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace">BIMI in Gmail</a>
                 </div>
             </div>
-            
-            <div class="status-badge">
+
+            <div class="panel">
+                <div class="panel-label">Assets</div>
+                <div class="links">
+                    <a href="image/logo.svg">image/logo.svg — BIMI mark</a>
+                    <a href="https://github.com/infinitum-nihil/BIMIrecord">github.com/infinitum-nihil/BIMIrecord</a>
+                    <a href="https://tsdr.uspto.gov/#caseNumber=97981054&caseType=US_APPLICATION&searchType=statusSearch">USPTO TSDR — Reg. 8145923</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div class="footer-left">
+                infinitum-nihil.com &nbsp;·&nbsp; <a href="https://github.com/infinitum-nihil/BIMIrecord">github</a>
+            </div>
+            <div>
                 <a href="https://uptime.betterstack.com/?utm_source=status_badge">
-                    <img src="https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg" alt="Status">
+                    <img src="https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg" alt="Uptime" style="height:18px;vertical-align:middle;">
                 </a>
             </div>
         </div>
+
     </div>
 </body>
 </html>
