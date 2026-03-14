@@ -27,7 +27,7 @@ The original `logo.svg` was a base64-encoded PNG wrapped in an SVG shell — tec
 
 The logo was rebuilt as a true vector SVG using potrace, traced directly from the brand source PNG, preserving the original mark's character and edges. The file at `image/logo.svg` is now a proper SVG Tiny 1.2 PS document with no embedded raster content.
 
-The VMC cert was purchased from PrimeSSL on March 14, 2026 ($810/year). Once the PEM is delivered, the final step is adding the `a=` field to the existing BIMI DNS record pointing to the cert URL.
+The VMC cert was purchased from PrimeSSL on March 14, 2026. Once the PEM is delivered, the final step is adding the `a=` field to the existing BIMI DNS record pointing to the cert URL.
 
 ---
 
