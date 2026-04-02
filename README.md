@@ -4,30 +4,41 @@ https://github.com/infinitum-nihil/BIMIrecord
 
 This repo hosts the BIMI assets for the mail services of infinitum-nihil.com
 
-last updated 14mar2026 by NT
+last updated 2apr2026 by NT
 
 ---
 
-## Status
+## Status: FULLY DEPLOYED
 
-| Component | Status |
-|-----------|--------|
-| DMARC | `p=reject` / `pct=100` ✅ |
-| BIMI DNS record | Live at `bimi.infinitum-nihil.com` ✅ |
-| SVG logo (`l=`) | True vector, BIMI SVG Tiny 1.2 PS compliant ✅ |
-| US Trademark | Reg. No. 8145923, registered February 17, 2026 ✅ |
-| VMC cert | In validation — PrimeSSL ⏳ |
-| `a=` field | Pending PEM delivery from PrimeSSL ⏳ |
+| Component | Status | Detail |
+|-----------|--------|--------|
+| DMARC | ✅ Live | `p=reject` / `pct=100` |
+| BIMI DNS record | ✅ Live | `default._bimi.infinitum-nihil.com` |
+| SVG logo (`l=`) | ✅ Live | `https://bimi.infinitum-nihil.com/image/logo.svg` |
+| VMC certificate (`a=`) | ✅ Live | `https://bimi.infinitum-nihil.com/image/vmc.pem` |
+| US Trademark | ✅ Registered | Reg. No. 8145923, February 17, 2026 |
+
+### DNS Record
+
+```
+default._bimi.infinitum-nihil.com TXT "v=BIMI1; l=https://bimi.infinitum-nihil.com/image/logo.svg; a=https://bimi.infinitum-nihil.com/image/vmc.pem"
+```
+
+### VMC Certificate
+
+- **Issuer:** GlobalSign GCC R42 Verified Mark CA 2023
+- **Subject:** INFINITUM NIHIL (Private Organization, CA, US)
+- **Trademark:** USPTO Reg. No. 8145923
+- **Valid:** April 2, 2026 — May 4, 2027
+- **File:** `image/vmc.pem`
 
 ---
 
-## What happened
+## History
 
-The original `logo.svg` was a base64-encoded PNG wrapped in an SVG shell — technically not a vector file and not BIMI-compliant. This was discovered when ssl2buy flagged it during VMC cert validation.
+**March 14, 2026:** Original `logo.svg` was a base64-encoded PNG wrapped in an SVG shell — not BIMI-compliant. Discovered during VMC cert validation. Logo rebuilt as true vector SVG using potrace from brand source PNG. BIMI DNS record set with `l=` only. VMC cert ordered from PrimeSSL/ssl2buy.
 
-The logo was rebuilt as a true vector SVG using potrace, traced directly from the brand source PNG, preserving the original mark's character and edges. The file at `image/logo.svg` is now a proper SVG Tiny 1.2 PS document with no embedded raster content.
-
-The VMC cert was purchased from PrimeSSL on March 14, 2026. Once the PEM is delivered, the final step is adding the `a=` field to the existing BIMI DNS record pointing to the cert URL.
+**April 2, 2026:** VMC certificate delivered by GlobalSign. PEM uploaded to `image/vmc.pem`. DNS record updated with `a=` parameter. BIMI fully operational.
 
 ---
 
