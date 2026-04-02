@@ -317,12 +317,12 @@
                         <td><span class="badge ok">Reg. No. 8145923</span></td>
                     </tr>
                     <tr>
-                        <td>VMC cert</td>
-                        <td><span class="badge pending">validation in progress</span></td>
+                        <td>VMC cert (a=)</td>
+                        <td><span class="badge ok">GlobalSign GCC R42</span></td>
                     </tr>
                     <tr>
-                        <td>a= field</td>
-                        <td><span class="badge pending">pending PEM delivery</span></td>
+                        <td>Cert validity</td>
+                        <td><span class="badge ok">Apr 2026 — May 2027</span></td>
                     </tr>
                 </table>
             </div>
@@ -331,10 +331,17 @@
                 <div class="panel-label">Changelog</div>
                 <div class="change-log">
                     <div class="change-item">
+                        <div class="change-date">02 Apr 2026</div>
+                        <div class="change-desc">
+                            BIMI fully deployed<br>
+                            <span>VMC cert delivered by GlobalSign · a= field added to DNS · all components live</span>
+                        </div>
+                    </div>
+                    <div class="change-item">
                         <div class="change-date">14 Mar 2026</div>
                         <div class="change-desc">
-                            VMC cert purchased — PrimeSSL<br>
-                            <span>validation in progress</span>
+                            VMC cert purchased — PrimeSSL/GlobalSign<br>
+                            <span>validation initiated</span>
                         </div>
                     </div>
                     <div class="change-item">
@@ -367,7 +374,7 @@
                     <span class="key">default._bimi.infinitum-nihil.com</span>&nbsp;&nbsp;<span class="val">IN TXT</span><br>
                     <span class="val">&nbsp;&nbsp;"v=BIMI1;</span><br>
                     <span class="val">&nbsp;&nbsp;&nbsp;l=</span><span class="val">https://bimi.infinitum-nihil.com/image/logo.svg;</span><br>
-                    <span class="pending-field">&nbsp;&nbsp;&nbsp;a=&lt;pending — PEM URL from PrimeSSL&gt;"</span>
+                    <span class="val">&nbsp;&nbsp;&nbsp;a=</span><span class="val">https://bimi.infinitum-nihil.com/image/vmc.pem"</span>
                 </div>
             </div>
 
@@ -385,6 +392,7 @@
                 <div class="panel-label">Assets</div>
                 <div class="links">
                     <a href="image/logo.svg">image/logo.svg — BIMI mark</a>
+                    <a href="image/vmc.pem">image/vmc.pem — VMC certificate</a>
                     <a href="https://github.com/infinitum-nihil/BIMIrecord">github.com/infinitum-nihil/BIMIrecord</a>
                     <a href="https://tsdr.uspto.gov/#caseNumber=97981054&caseType=US_APPLICATION&searchType=statusSearch">USPTO TSDR — Reg. 8145923</a>
                 </div>
