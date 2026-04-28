@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /image/logo.svg
+Allow: /image/vmc.pem
+Disallow: /
+
