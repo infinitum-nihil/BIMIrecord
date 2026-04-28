@@ -17,6 +17,9 @@ jobs:
         run: curl https://rclone.org/install.sh | sudo bash
 
       - name: Sync to R2
+        permissions:
+        contents: read
+        pull-requests: write
         run: |
           rclone sync . :s3:bimi-assets/ \
             --s3-provider Cloudflare \
