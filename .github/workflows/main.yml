@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
     paths: ['image/**']
+permissions:
+  contents: read
 jobs:
   sync:
     runs-on: ubuntu-latest
