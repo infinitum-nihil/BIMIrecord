@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://uptime.betterstack.com; script-src 'none'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'none';">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
     <title>BIMI — infinitum-nihil.com</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
@@ -52,7 +46,6 @@
             overflow: hidden;
         }
 
-        /* Header */
         .header {
             background: var(--grey-1);
             border-bottom: 1px solid var(--border);
@@ -70,11 +63,7 @@
             overflow: hidden;
         }
 
-        .logo-mark img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+        .logo-mark img { width: 100%; height: 100%; display: block; }
 
         .header-text h1 {
             font-family: 'IBM Plex Mono', monospace;
@@ -91,7 +80,6 @@
             font-family: 'IBM Plex Mono', monospace;
         }
 
-        /* Body grid */
         .body {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -103,9 +91,7 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .panel:nth-child(odd) {
-            border-right: 1px solid var(--border);
-        }
+        .panel:nth-child(odd) { border-right: 1px solid var(--border); }
 
         .panel-full {
             grid-column: 1 / -1;
@@ -123,30 +109,15 @@
             margin-bottom: 14px;
         }
 
-        /* Status table */
-        .status-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .status-table tr {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .status-table tr:last-child {
-            border-bottom: none;
-        }
-
+        .status-table { width: 100%; border-collapse: collapse; }
+        .status-table tr { border-bottom: 1px solid var(--border); }
+        .status-table tr:last-child { border-bottom: none; }
         .status-table td {
             padding: 8px 0;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 12px;
         }
-
-        .status-table td:first-child {
-            color: var(--grey-text);
-            width: 55%;
-        }
+        .status-table td:first-child { color: var(--grey-text); width: 55%; }
 
         .badge {
             display: inline-flex;
@@ -171,23 +142,11 @@
         .badge.pending { color: #e6a817; }
         .badge.pending::before { background: #e6a817; box-shadow: 0 0 6px #e6a817; animation: pulse 2s ease-in-out infinite; }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-        /* What changed */
-        .change-log {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        .change-log { display: flex; flex-direction: column; gap: 10px; }
 
-        .change-item {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
+        .change-item { display: flex; gap: 12px; align-items: flex-start; }
 
         .change-date {
             font-family: 'IBM Plex Mono', monospace;
@@ -198,23 +157,10 @@
             min-width: 80px;
         }
 
-        .change-desc {
-            font-size: 13px;
-            color: var(--white);
-            line-height: 1.5;
-        }
+        .change-desc { font-size: 13px; color: var(--white); line-height: 1.5; }
+        .change-desc span { color: var(--grey-text); font-size: 12px; }
 
-        .change-desc span {
-            color: var(--grey-text);
-            font-size: 12px;
-        }
-
-        /* Links */
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        .links { display: flex; flex-direction: column; gap: 6px; }
 
         .links a {
             display: block;
@@ -234,7 +180,6 @@
             background: var(--red-dim);
         }
 
-        /* DNS record */
         .dns-block {
             background: var(--grey-2);
             border: 1px solid var(--border);
@@ -249,9 +194,7 @@
 
         .dns-block .key { color: var(--red); }
         .dns-block .val { color: #aaaaaa; }
-        .dns-block .pending-field { color: #e6a817; }
 
-        /* Footer */
         .footer {
             background: var(--grey-1);
             padding: 14px 28px;
@@ -267,11 +210,7 @@
             color: var(--grey-text);
         }
 
-        .footer-left a {
-            color: var(--grey-text);
-            text-decoration: none;
-        }
-
+        .footer-left a { color: var(--grey-text); text-decoration: none; }
         .footer-left a:hover { color: var(--white); }
 
         @media (max-width: 600px) {
@@ -287,11 +226,11 @@
 
         <div class="header">
             <div class="logo-mark">
-                <img src="image/logo.svg" alt="Infinitum Nihil">
+                <img src="image/logo.svg" alt="infinitum nihil">
             </div>
             <div class="header-text">
                 <h1>infinitum-nihil.com — BIMI</h1>
-                <p>Brand Indicators for Message Identification · bimi.infinitum-nihil.com</p>
+                <p>Brand Indicators for Message Identification</p>
             </div>
         </div>
 
@@ -318,11 +257,7 @@
                     </tr>
                     <tr>
                         <td>VMC cert (a=)</td>
-                        <td><span class="badge ok">GlobalSign GCC R42</span></td>
-                    </tr>
-                    <tr>
-                        <td>Cert validity</td>
-                        <td><span class="badge ok">Apr 2026 — May 2027</span></td>
+                        <td><span class="badge pending">reissuance pending</span></td>
                     </tr>
                 </table>
             </div>
@@ -331,24 +266,31 @@
                 <div class="panel-label">Changelog</div>
                 <div class="change-log">
                     <div class="change-item">
+                        <div class="change-date">27 Apr 2026</div>
+                        <div class="change-desc">
+                            SVG rebuilt from PSD master<br>
+                            <span>potrace trace from Logoblackbackground.psd · brand red on white · square 981&times;981 viewBox · BIMI Tiny 1.2 PS compliant · validated via bimi-svg-worker</span>
+                        </div>
+                    </div>
+                    <div class="change-item">
+                        <div class="change-date">27 Apr 2026</div>
+                        <div class="change-desc">
+                            VMC reissuance ordered<br>
+                            <span>original cert embedded SVG with width="100%" (percentage, not absolute pixels) — non-compliant per Google Workspace BIMI requirements · new cert ordered via PrimeSSL/GlobalSign with corrected logo</span>
+                        </div>
+                    </div>
+                    <div class="change-item">
+                        <div class="change-date">27 Apr 2026</div>
+                        <div class="change-desc">
+                            Serving migrated to Cloudflare R2<br>
+                            <span>bimi.infinitum-nihil.com custom domain on R2 bucket · GitHub Actions rclone sync on push · GitHub Pages removed</span>
+                        </div>
+                    </div>
+                    <div class="change-item">
                         <div class="change-date">02 Apr 2026</div>
                         <div class="change-desc">
-                            BIMI fully deployed<br>
-                            <span>VMC cert delivered by GlobalSign · a= field added to DNS · all components live</span>
-                        </div>
-                    </div>
-                    <div class="change-item">
-                        <div class="change-date">14 Mar 2026</div>
-                        <div class="change-desc">
-                            VMC cert purchased — PrimeSSL/GlobalSign<br>
-                            <span>validation initiated</span>
-                        </div>
-                    </div>
-                    <div class="change-item">
-                        <div class="change-date">14 Mar 2026</div>
-                        <div class="change-desc">
-                            SVG rebuilt as true vector<br>
-                            <span>potrace trace from brand PNG · BIMI Tiny 1.2 PS compliant</span>
+                            BIMI initially deployed<br>
+                            <span>VMC cert delivered by GlobalSign · a= field added to DNS</span>
                         </div>
                     </div>
                     <div class="change-item">
@@ -356,13 +298,6 @@
                         <div class="change-desc">
                             Trademark registered<br>
                             <span>US Reg. No. 8145923 — Principal Register</span>
-                        </div>
-                    </div>
-                    <div class="change-item">
-                        <div class="change-date">Apr 2025</div>
-                        <div class="change-desc">
-                            BIMI DNS record live<br>
-                            <span>Waiting on trademark + VMC</span>
                         </div>
                     </div>
                 </div>
@@ -373,8 +308,8 @@
                 <div class="dns-block">
                     <span class="key">default._bimi.infinitum-nihil.com</span>&nbsp;&nbsp;<span class="val">IN TXT</span><br>
                     <span class="val">&nbsp;&nbsp;"v=BIMI1;</span><br>
-                    <span class="val">&nbsp;&nbsp;&nbsp;l=</span><span class="val">https://bimi.infinitum-nihil.com/image/logo.svg;</span><br>
-                    <span class="val">&nbsp;&nbsp;&nbsp;a=</span><span class="val">https://bimi.infinitum-nihil.com/image/vmc.pem"</span>
+                    <span class="val">&nbsp;&nbsp;&nbsp;l=https://bimi.infinitum-nihil.com/image/logo.svg;</span><br>
+                    <span class="val">&nbsp;&nbsp;&nbsp;a=https://bimi.infinitum-nihil.com/image/vmc.pem"</span>
                 </div>
             </div>
 
@@ -382,9 +317,9 @@
                 <div class="panel-label">Specifications</div>
                 <div class="links">
                     <a href="https://datatracker.ietf.org/doc/draft-brand-indicators-for-message-identification/">IETF BIMI Draft</a>
+                    <a href="https://datatracker.ietf.org/doc/draft-svg-tiny-ps-abrotman/">SVG Tiny Portable/Secure</a>
                     <a href="https://bimigroup.org/">BIMI Group</a>
-                    <a href="https://www.digicert.com/faq/email-trust/what-is-a-verified-mark-certificate/">What is a VMC?</a>
-                    <a href="https://cloud.google.com/blog/products/identity-security/bringing-bimi-to-gmail-in-google-workspace">BIMI in Gmail</a>
+                    <a href="https://support.google.com/a/answer/10911027">Create a BIMI SVG — Google</a>
                 </div>
             </div>
 
@@ -392,7 +327,8 @@
                 <div class="panel-label">Assets</div>
                 <div class="links">
                     <a href="image/logo.svg">image/logo.svg — BIMI mark</a>
-                    <a href="image/vmc.pem">image/vmc.pem — VMC certificate</a>
+                    <a href="image/vmc.pem">image/vmc.pem — VMC certificate chain</a>
+                    <a href="https://bimi-svg-worker.infinitumnihil.workers.dev/">bimi-svg-worker — SVG validator</a>
                     <a href="https://github.com/infinitum-nihil/BIMIrecord">github.com/infinitum-nihil/BIMIrecord</a>
                     <a href="https://tsdr.uspto.gov/#caseNumber=97981054&caseType=US_APPLICATION&searchType=statusSearch">USPTO TSDR — Reg. 8145923</a>
                 </div>
@@ -402,12 +338,7 @@
 
         <div class="footer">
             <div class="footer-left">
-                infinitum-nihil.com &nbsp;·&nbsp; <a href="https://github.com/infinitum-nihil/BIMIrecord">github</a>
-            </div>
-            <div>
-                <a href="https://uptime.betterstack.com/?utm_source=status_badge">
-                    <img src="https://uptime.betterstack.com/status-badges/v1/monitor/1re8n.svg" alt="Uptime" style="height:18px;vertical-align:middle;">
-                </a>
+                infinitum-nihil.com &nbsp;&middot;&nbsp; <a href="https://github.com/infinitum-nihil/BIMIrecord">source</a>
             </div>
         </div>
 
