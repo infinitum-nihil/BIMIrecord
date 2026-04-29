@@ -12,22 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Install rclone
-        run: curl https://rclone.org/install.sh | sudo bash
-
-      - name: Sync to R2
-        permissions:
-        contents: read
-        pull-requests: write
-        run: |
-          rclone sync . :s3:bimi-assets/ \
-            --s3-provider Cloudflare \
-            --s3-endpoint https://${{ secrets.CF_ACCOUNT_ID }}.r2.cloudflarestorage.com \
-            --s3-access-key-id ${{ secrets.R2_ACCESS_KEY_ID }} \
-            --s3-secret-access-key ${{ secrets.R2_SECRET_ACCESS_KEY }} \
-            --exclude ".git/**" \
-            --exclude ".github/**" \
-            --exclude "README.md" \
-            --exclude ".gitignore" \
-            --exclude "LICENSE"
+        uses: zhaijunxiao/r2-dir-sync@v1.0.1
+        with:
+          accountid: ${{ secrets.CF_ACCOUNT_ID }}
+          accesskeyid: ${{ secrets.R2_ACCESS_KEY_ID }}
+          secretaccesskey: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          bucket: bimi-assets
+          source: ${{ github.workspace }}
+          filenamePattern: ^(image/|index\.html|robots\.txt)
