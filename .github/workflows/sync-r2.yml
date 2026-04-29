@@ -20,6 +20,6 @@ jobs:
           accesskeyid: ${{ secrets.R2_ACCESS_KEY_ID }}
           secretaccesskey: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           bucket: bimi-assets
-          source: ${{ github.workspace }}
+          source: ./
           destination: ""
-          filenamePattern: '.*'
+          filenamePattern: '^(?!\.git|\.github|\.wrangler|node_modules).*'
