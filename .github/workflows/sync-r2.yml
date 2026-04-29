@@ -19,6 +19,5 @@ jobs:
           accesskeyid: ${{ secrets.R2_ACCESS_KEY_ID }}
           secretaccesskey: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           bucket: bimi-assets
-          source: ${{ github.workspace }}/static
-          destinations: dir
-          filenamePattern: ^(image/|index\.html|robots\.txt)
+          source: ${{ github.workspace }}
+          filenamePattern: .*
