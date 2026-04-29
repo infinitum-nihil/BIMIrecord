@@ -15,14 +15,17 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v4
-
-      - name: R2 Directory Sync
-        uses: zhaijunxiao/r2-dir-sync@v1.0.1  # Update to latest version
-        with:
-          accountid: ${{ secrets.CF_ACCOUNT_ID }}
-          accesskeyid: ${{ secrets.R2_ACCESS_KEY_ID }}
-          secretaccesskey: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          bucket: bimi-assets
-          source: ./
-          destination: ""
-          filenamePattern: '^(?!\.git|\.github|\.wrangler|node_modules).*'
+      - name: Sync to R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+        run: |
+          aws s3 sync . s3://bimi-assets/ \
+            --endpoint-url https://${{ secrets.CF_ACCOUNT_ID }}.r2.cloudflarestorage.com \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "README.md" \
+            --exclude ".gitignore" \
+            --exclude "LICENSE" \
+            --delete

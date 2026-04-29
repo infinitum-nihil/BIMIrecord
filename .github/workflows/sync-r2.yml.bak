@@ -1,0 +1,28 @@
+name: Sync BIMI site to R2
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+      - 'LICENSE'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: R2 Directory Sync
+        uses: zhaijunxiao/r2-dir-sync@v1.0.1  # Update to latest version
+        with:
+          accountid: ${{ secrets.CF_ACCOUNT_ID }}
+          accesskeyid: ${{ secrets.R2_ACCESS_KEY_ID }}
+          secretaccesskey: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          bucket: bimi-assets
+          source: ./
+          destination: ""
+          filenamePattern: '^(?!\.git|\.github|\.wrangler|node_modules).*'
