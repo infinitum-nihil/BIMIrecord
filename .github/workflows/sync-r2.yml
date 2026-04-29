@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install rclone
-        uses: zhaijunxiao/r2-dir-sync@v2.0.0  # Update to latest version
+        uses: zhaijunxiao/r2-dir-sync@v1.0.1  # Update to latest version
         with:
           accountid: ${{ secrets.CF_ACCOUNT_ID }}
           accesskeyid: ${{ secrets.R2_ACCESS_KEY_ID }}
